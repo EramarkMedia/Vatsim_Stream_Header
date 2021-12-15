@@ -1,0 +1,440 @@
+[gd_scene load_steps=13 format=2]
+
+[ext_resource path="res://Assets/Fonts/bribag-sans/BribagSans-Regular.ttf" type="DynamicFontData" id=1]
+[ext_resource path="res://Assets/Fonts/7-Segment/fonts-DSEG_v046/DSEG7-Modern/DSEG7Modern-Regular.ttf" type="DynamicFontData" id=2]
+[ext_resource path="res://Vatsim_Info_Bar.gd" type="Script" id=3]
+[ext_resource path="res://Assets/Fonts/Tahoma/Tahoma.TTF" type="DynamicFontData" id=4]
+
+[sub_resource type="DynamicFont" id=1]
+size = 40
+font_data = ExtResource( 1 )
+
+[sub_resource type="Theme" id=2]
+default_font = SubResource( 1 )
+
+[sub_resource type="StyleBoxFlat" id=3]
+bg_color = Color( 0.25098, 0.25098, 0.25098, 1 )
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[sub_resource type="StyleBoxFlat" id=4]
+bg_color = Color( 0.396078, 0.396078, 0.396078, 1 )
+border_width_left = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color( 0, 0, 0, 1 )
+
+[sub_resource type="DynamicFont" id=5]
+size = 30
+outline_size = 1
+outline_color = Color( 0.00392157, 0.00392157, 0.00392157, 1 )
+font_data = ExtResource( 2 )
+
+[sub_resource type="DynamicFont" id=6]
+size = 35
+outline_size = 1
+outline_color = Color( 0, 0, 0, 1 )
+font_data = ExtResource( 4 )
+
+[sub_resource type="StyleBoxFlat" id=7]
+bg_color = Color( 0.192157, 0.192157, 0.192157, 1 )
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[sub_resource type="DynamicFont" id=8]
+size = 25
+outline_size = 1
+outline_color = Color( 0.0196078, 0.0196078, 0.0196078, 1 )
+font_data = ExtResource( 4 )
+
+[node name="Control" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+theme = SubResource( 2 )
+script = ExtResource( 3 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Header_Panel" type="Panel" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_bottom = -530.0
+custom_styles/panel = SubResource( 3 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Header_Panel"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_constants/separation = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Spacer_Panel" type="Panel" parent="Header_Panel/HBoxContainer"]
+margin_right = 60.0
+margin_bottom = 70.0
+rect_min_size = Vector2( 60, 0 )
+
+[node name="Time_UTC_Panel" type="Panel" parent="Header_Panel/HBoxContainer"]
+margin_left = 61.0
+margin_right = 317.0
+margin_bottom = 70.0
+rect_min_size = Vector2( 256, 70 )
+size_flags_horizontal = 0
+size_flags_vertical = 0
+custom_styles/panel = SubResource( 4 )
+
+[node name="Panel" type="Panel" parent="Header_Panel/HBoxContainer/Time_UTC_Panel"]
+anchor_right = 1.0
+margin_left = 3.0
+margin_right = -2.99998
+margin_bottom = 30.0
+size_flags_horizontal = 0
+size_flags_vertical = 0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Time_UTC_Header" type="RichTextLabel" parent="Header_Panel/HBoxContainer/Time_UTC_Panel/Panel"]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -75.0
+margin_right = 75.0
+margin_bottom = 40.0
+text = "TIME UTC"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Time_Label" type="RichTextLabel" parent="Header_Panel/HBoxContainer/Time_UTC_Panel"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -94.0
+margin_top = -3.0
+margin_right = 81.0
+margin_bottom = 37.0
+rect_min_size = Vector2( 175, 0 )
+custom_fonts/normal_font = SubResource( 5 )
+bbcode_enabled = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Time_Local_Panel" type="Panel" parent="Header_Panel/HBoxContainer"]
+margin_left = 318.0
+margin_right = 574.0
+margin_bottom = 70.0
+rect_min_size = Vector2( 256, 70 )
+size_flags_horizontal = 0
+size_flags_vertical = 0
+custom_styles/panel = SubResource( 4 )
+
+[node name="Panel" type="Panel" parent="Header_Panel/HBoxContainer/Time_Local_Panel"]
+anchor_right = 1.0
+margin_left = 3.0
+margin_right = -2.99998
+margin_bottom = 30.0
+size_flags_horizontal = 0
+size_flags_vertical = 0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Time_Local_Header" type="RichTextLabel" parent="Header_Panel/HBoxContainer/Time_Local_Panel/Panel"]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -95.0
+margin_right = 95.0
+margin_bottom = 40.0
+bbcode_enabled = true
+bbcode_text = "TIME LOCAL"
+text = "TIME LOCAL"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Time_Local_Label" type="RichTextLabel" parent="Header_Panel/HBoxContainer/Time_Local_Panel"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -94.0
+margin_top = -3.0
+margin_right = 81.0
+margin_bottom = 37.0
+rect_min_size = Vector2( 175, 0 )
+custom_fonts/normal_font = SubResource( 5 )
+bbcode_enabled = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Date_Panel" type="Panel" parent="Header_Panel/HBoxContainer"]
+margin_left = 575.0
+margin_right = 831.0
+margin_bottom = 70.0
+rect_min_size = Vector2( 256, 70 )
+size_flags_horizontal = 0
+size_flags_vertical = 0
+custom_styles/panel = SubResource( 4 )
+
+[node name="Panel" type="Panel" parent="Header_Panel/HBoxContainer/Date_Panel"]
+anchor_right = 1.0
+margin_left = 3.0
+margin_right = -2.99998
+margin_bottom = 30.0
+size_flags_horizontal = 0
+size_flags_vertical = 0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Date_Header" type="RichTextLabel" parent="Header_Panel/HBoxContainer/Date_Panel/Panel"]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -75.0
+margin_right = 75.0
+margin_bottom = 40.0
+bbcode_enabled = true
+bbcode_text = "[center]DATE[/center]"
+text = "DATE"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Date_Label" type="RichTextLabel" parent="Header_Panel/HBoxContainer/Date_Panel"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -128.0
+margin_top = -11.0
+margin_right = 128.0
+margin_bottom = 34.0
+rect_min_size = Vector2( 175, 0 )
+custom_fonts/normal_font = SubResource( 6 )
+bbcode_enabled = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Airport_Panel" type="Panel" parent="Header_Panel/HBoxContainer"]
+margin_left = 832.0
+margin_right = 1088.0
+margin_bottom = 70.0
+rect_min_size = Vector2( 256, 70 )
+size_flags_horizontal = 0
+size_flags_vertical = 0
+custom_styles/panel = SubResource( 4 )
+
+[node name="Panel" type="Panel" parent="Header_Panel/HBoxContainer/Airport_Panel"]
+anchor_right = 1.0
+margin_left = 3.0
+margin_right = -2.99998
+margin_bottom = 30.0
+size_flags_horizontal = 0
+size_flags_vertical = 0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Airport_Header" type="RichTextLabel" parent="Header_Panel/HBoxContainer/Airport_Panel/Panel"]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -75.0
+margin_right = 75.0
+margin_bottom = 40.0
+bbcode_enabled = true
+bbcode_text = "[center]AIRPORT[/center]"
+text = "AIRPORT"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Airport_Label" type="RichTextLabel" parent="Header_Panel/HBoxContainer/Airport_Panel"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -128.0
+margin_top = -11.0
+margin_right = 128.0
+margin_bottom = 34.0
+rect_min_size = Vector2( 175, 0 )
+custom_fonts/normal_font = SubResource( 6 )
+bbcode_enabled = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Arrivals_Panel" type="Panel" parent="Header_Panel/HBoxContainer"]
+margin_left = 1089.0
+margin_right = 1345.0
+margin_bottom = 70.0
+rect_min_size = Vector2( 256, 70 )
+size_flags_horizontal = 0
+size_flags_vertical = 0
+custom_styles/panel = SubResource( 4 )
+
+[node name="Panel" type="Panel" parent="Header_Panel/HBoxContainer/Arrivals_Panel"]
+anchor_right = 1.0
+margin_left = 3.0
+margin_right = -2.99998
+margin_bottom = 30.0
+size_flags_horizontal = 0
+size_flags_vertical = 0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Arrivals_Header" type="RichTextLabel" parent="Header_Panel/HBoxContainer/Arrivals_Panel/Panel"]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -75.0
+margin_right = 75.0
+margin_bottom = 40.0
+bbcode_enabled = true
+bbcode_text = "[center]ARRIVALS[/center]"
+text = "ARRIVALS"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Arrivals_Label" type="RichTextLabel" parent="Header_Panel/HBoxContainer/Arrivals_Panel"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -128.0
+margin_top = -11.0
+margin_right = 128.0
+margin_bottom = 34.0
+rect_min_size = Vector2( 175, 0 )
+custom_fonts/normal_font = SubResource( 6 )
+bbcode_enabled = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Departures_Panel" type="Panel" parent="Header_Panel/HBoxContainer"]
+margin_left = 1346.0
+margin_right = 1602.0
+margin_bottom = 70.0
+rect_min_size = Vector2( 256, 70 )
+size_flags_horizontal = 0
+size_flags_vertical = 0
+custom_styles/panel = SubResource( 4 )
+
+[node name="Panel" type="Panel" parent="Header_Panel/HBoxContainer/Departures_Panel"]
+anchor_right = 1.0
+margin_left = 3.0
+margin_right = -2.99998
+margin_bottom = 30.0
+size_flags_horizontal = 0
+size_flags_vertical = 0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Departures_Header" type="RichTextLabel" parent="Header_Panel/HBoxContainer/Departures_Panel/Panel"]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -115.0
+margin_right = 115.0
+margin_bottom = 40.0
+bbcode_enabled = true
+bbcode_text = "[center]DEPARTURES[/center]"
+text = "DEPARTURES"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Departures_Label" type="RichTextLabel" parent="Header_Panel/HBoxContainer/Departures_Panel"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -128.0
+margin_top = -11.0
+margin_right = 128.0
+margin_bottom = 34.0
+rect_min_size = Vector2( 175, 0 )
+custom_fonts/normal_font = SubResource( 6 )
+bbcode_enabled = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Temperature_Panel" type="Panel" parent="Header_Panel/HBoxContainer"]
+margin_left = 1603.0
+margin_right = 1859.0
+margin_bottom = 70.0
+rect_min_size = Vector2( 256, 70 )
+size_flags_horizontal = 0
+size_flags_vertical = 0
+custom_styles/panel = SubResource( 4 )
+
+[node name="Panel" type="Panel" parent="Header_Panel/HBoxContainer/Temperature_Panel"]
+anchor_right = 1.0
+margin_left = 3.0
+margin_right = -2.99998
+margin_bottom = 30.0
+size_flags_horizontal = 0
+size_flags_vertical = 0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Temperature_Header" type="RichTextLabel" parent="Header_Panel/HBoxContainer/Temperature_Panel/Panel"]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -125.0
+margin_right = 125.0
+margin_bottom = 40.0
+bbcode_enabled = true
+bbcode_text = "[center]TEMPERATURE[/center]"
+text = "TEMPERATURE"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Temperature_Label" type="RichTextLabel" parent="Header_Panel/HBoxContainer/Temperature_Panel"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -128.0
+margin_top = -11.0
+margin_right = 128.0
+margin_bottom = 34.0
+rect_min_size = Vector2( 175, 0 )
+custom_fonts/normal_font = SubResource( 6 )
+bbcode_enabled = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Spacer_Panel2" type="Panel" parent="Header_Panel/HBoxContainer"]
+margin_left = 1860.0
+margin_right = 1920.0
+margin_bottom = 70.0
+rect_min_size = Vector2( 60, 0 )
+
+[node name="Info_Panel" type="Panel" parent="."]
+margin_top = 70.0
+margin_right = 1920.0
+margin_bottom = 100.0
+custom_styles/panel = SubResource( 7 )
+
+[node name="Info_Label" type="RichTextLabel" parent="Info_Panel"]
+margin_left = 5.0
+margin_right = 1915.0
+margin_bottom = 35.0
+size_flags_horizontal = 0
+size_flags_vertical = 0
+custom_fonts/normal_font = SubResource( 8 )
